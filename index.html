@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rampa – Off-Road Incline Video</title>
+<meta name="description" content="Rampa draws your vehicle's real slope, the 0° horizon and live gauges on your off-road videos, so hills look as steep as they really are.">
+<meta property="og:title" content="Rampa – Off-Road Incline Video">
+<meta property="og:description" content="Hills look flat on video. Rampa shows the real slope.">
+<meta property="og:image" content="https://phisoftware.github.io/rampa/icon.png">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --ink: #15171A; --ink-soft: #24282C; --accent: #FF8A2B; --accent-deep: #E8650A; --accent-soft: #FCE6D6;
+    --bg: #F5F4F2; --surface: #FFFFFF; --text: #15171A; --muted: #5F6368; --line: #E5E3DF; --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0E1012; --surface: #1A1D20; --text: #F2F2F3; --muted: #A4A8AD; --line: #2A2E33; --accent-soft: #3A2414; --accent-deep: #FF8A2B; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent-deep); text-decoration: none; } a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  html[lang="tr"] [data-l="en"], html[lang="en"] [data-l="tr"] { display: none !important; }
+
+  .top { position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px);
+    background: color-mix(in srgb, var(--ink) 82%, transparent); color: #fff; }
+  .top .wrap { display: flex; align-items: center; gap: 12px; height: 56px; }
+  .top img { width: 30px; height: 30px; border-radius: 8px; }
+  .top b { font-size: 17px; letter-spacing: .04em; }
+  .top nav { margin-left: auto; display: flex; gap: 18px; align-items: center; font-size: 15px; }
+  .top nav a { color: #D6D8DB; } .top nav a:hover { color: #fff; text-decoration: none; }
+  .langs { display: flex; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; overflow: hidden; }
+  .langs button { background: none; border: 0; color: #D6D8DB; font: 600 13px/1 inherit; padding: 7px 11px; cursor: pointer; }
+  .langs button.on { background: var(--accent); color: var(--ink); }
+  @media (max-width: 640px) { .top nav a { display: none; } }
+
+  .hero { background: radial-gradient(1100px 520px at 85% -10%, rgba(255,138,43,.30), transparent 60%),
+                      linear-gradient(160deg, var(--ink-soft), #0B0D0F); color: #fff; padding: 64px 0 0; overflow: hidden; position: relative; }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 46%;
+    background: linear-gradient(to top left, rgba(255,138,43,.10) 50%, transparent 50.2%); pointer-events: none; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: end; position: relative; z-index: 1; }
+  .hero .icon { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+  .hero h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.04; letter-spacing: -.03em; margin: 22px 0 14px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.lead { font-size: 19px; color: #C9CCD0; max-width: 34em; margin: 0 0 26px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 64px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--ink); font-weight: 650; padding: 13px 20px; border-radius: 14px; font-size: 16px; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .soon { font-size: 14px; color: #A4A8AD; }
+  .shots { display: flex; gap: 16px; justify-content: center; align-items: flex-end; }
+  .shots img { width: 46%; max-width: 230px; border-radius: 28px 28px 0 0; box-shadow: 0 20px 50px rgba(0,0,0,.5); border: 6px solid #2B2F33; border-bottom: 0; display: block; }
+  .shots img:first-child { transform: translateY(24px); }
+  @media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; } .cta { margin-bottom: 36px; } }
+
+  section { padding: 64px 0 8px; }
+  h2 { font-size: clamp(26px, 4vw, 34px); letter-spacing: -.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 28px; max-width: 40em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card .ico { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent-deep); display: grid; place-items: center; font-size: 20px; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; } .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  ol.steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px 16px 62px; position: relative; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 18px; top: 15px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--ink); font-weight: 700; display: grid; place-items: center; }
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px; margin-bottom: 10px; }
+  summary { font-weight: 650; cursor: pointer; } details p { color: var(--muted); margin: 10px 0 0; }
+  footer { padding: 56px 0 48px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <img src="icon.png" alt=""><b>RAMPA</b>
+  <nav>
+    <a href="#features" data-l="en">Features</a><a href="#features" data-l="tr">Özellikler</a>
+    <a href="#faq" data-l="en">Help</a><a href="#faq" data-l="tr">Yardım</a>
+    <a href="privacy.html" data-l="en">Privacy</a><a href="privacy.html" data-l="tr">Gizlilik</a>
+    <div class="langs"><button data-set="en">EN</button><button data-set="tr">TR</button></div>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <img class="icon" src="icon.png" alt="Rampa">
+    <h1 data-l="en">Hills look flat on video.<br><span>Show the real slope.</span></h1>
+    <h1 data-l="tr">Yokuşlar videoda düz görünür.<br><span>Gerçek eğimi göster.</span></h1>
+    <p class="lead" data-l="en">Your camera tilts with your vehicle, so the horizon tilts too. Rampa draws the real slope, the 0° horizon and live gauges right on your off-road footage — ready for a vertical story in one tap.</p>
+    <p class="lead" data-l="tr">Kamera araçla birlikte eğilir, ufuk da onunla eğilir. Rampa gerçek eğimi, 0° ufuk çizgisini ve canlı göstergeleri arazi videonun üstüne çizer — tek dokunuşla dikey hikâyeye hazır.</p>
+    <div class="cta">
+      <span class="btn" data-l="en">iPhone · App Store</span><span class="btn" data-l="tr">iPhone · App Store</span>
+      <span class="soon" data-l="en">Free · 10 languages</span><span class="soon" data-l="tr">Ücretsiz · 10 dil</span>
+    </div>
+  </div>
+  <div class="shots">
+    <img src="img/en-record.jpg" alt="" data-l="en"><img src="img/en-clip.jpg" alt="" data-l="en">
+    <img src="img/tr-record.jpg" alt="" data-l="tr"><img src="img/tr-clip.jpg" alt="" data-l="tr">
+  </div>
+</div></div>
+
+<section id="features"><div class="wrap">
+  <h2 data-l="en">What Rampa does</h2><h2 data-l="tr">Rampa ne yapar?</h2>
+  <p class="sub" data-l="en">Made for off-roaders, from weekend trails to competition.</p>
+  <p class="sub" data-l="tr">Hafta sonu parkurundan yarışa, off-road'cular için.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">⛰︎</div>
+      <h3 data-l="en">The real slope</h3><h3 data-l="tr">Gerçek eğim</h3>
+      <p data-l="en">Pitch and roll gauges with side and rear views, the 0° horizon on the video, and peak angles for every clip.</p>
+      <p data-l="tr">Yandan ve arkadan araç çizimli yokuş ve yatış göstergeleri, videoda 0° ufuk ve her klipte en yüksek açılar.</p></div>
+    <div class="card"><div class="ico">▮</div>
+      <h3 data-l="en">Story in one tap</h3><h3 data-l="tr">Tek dokunuşla hikâye</h3>
+      <p data-l="en">Vertical 9:16 with big gauges and the steepest moment as the headline. Rampa finds the steepest 15 seconds.</p>
+      <p data-l="tr">Büyük göstergeli, başlıkta en dik an olan dikey 9:16. En dik 15 saniyeyi Rampa bulur.</p></div>
+    <div class="card"><div class="ico">◉</div>
+      <h3 data-l="en">Any camera</h3><h3 data-l="tr">Her kamerayla</h3>
+      <p data-l="en">Action cam videos with motion data, any camera matched by the clock to a Rampa measurement, or manual marking.</p>
+      <p data-l="tr">Hareket verili aksiyon kamerası videoları, saatten Rampa ölçümüyle eşlenen herhangi bir kamera ya da elle ölçüm.</p></div>
+    <div class="card"><div class="ico">!</div>
+      <h3 data-l="en">Side-tilt warning</h3><h3 data-l="tr">Yan yatış uyarısı</h3>
+      <p data-l="en">Vibration and a short sound at the angle you choose, plus a big-dial gauge mode while recording.</p>
+      <p data-l="tr">Seçtiğin açıda titreşim ve kısa bir ses; kayıt sürerken büyük kadranlı gösterge kipi.</p></div>
+    <div class="card"><div class="ico">✎</div>
+      <h3 data-l="en">Your ride on the video</h3><h3 data-l="tr">Künye videoda</h3>
+      <p data-l="en">Vehicle, tyres, lift, driver, club, trail, tyre pressure, 4L and lockers — all optional.</p>
+      <p data-l="tr">Araç, lastik, lift, sürücü, kulüp, parkur, lastik basıncı, 4L ve kilitler — hepsi isteğe bağlı.</p></div>
+    <div class="card"><div class="ico">⌂</div>
+      <h3 data-l="en">Private by design</h3><h3 data-l="tr">Gizlilik önce</h3>
+      <p data-l="en">No account. Videos stay on your phone until you share them. <a href="privacy.html">Privacy policy</a></p>
+      <p data-l="tr">Hesap yok. Videoların sen paylaşana kadar telefonunda kalır. <a href="privacy.html">Gizlilik politikası</a></p></div>
+  </div>
+</div></section>
+
+<section id="start"><div class="wrap">
+  <h2 data-l="en">Getting started</h2><h2 data-l="tr">Başlarken</h2>
+  <ol class="steps" data-l="en">
+    <li>Mount the phone firmly in the vehicle, camera facing forward.</li>
+    <li>Park on level ground and tap <b>Calibrate</b>. If the ground isn't perfectly flat, use two-way calibration: measure, turn the vehicle 180° on the same spot, measure again.</li>
+    <li>Record. In landscape you get the widest view; on very steep hills an arrow at the edge shows where the horizon is.</li>
+    <li>Open the clip in Recordings and choose <b>Vertical</b> for stories or <b>Landscape</b> for YouTube, then save or share.</li>
+  </ol>
+  <ol class="steps" data-l="tr">
+    <li>Telefonu araca sağlam bağla, kamera öne baksın.</li>
+    <li>Düz zeminde dur ve <b>Sıfırla</b>'ya dokun. En doğrusu çift yönlü sıfırlama: sıfırla, aracı aynı yerde 180° çevir, yeniden sıfırla.</li>
+    <li>Kaydet. Yatay tutuşta görüş en geniş; çok dik yokuşta kenardaki ok ufkun nerede olduğunu gösterir.</li>
+    <li>Kayıtlar'da klibi aç; hikâye için <b>Dikey</b>, YouTube için <b>Yatay</b> seç, kaydet ya da paylaş.</li>
+  </ol>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2 data-l="en">Help</h2><h2 data-l="tr">Yardım</h2>
+  <div data-l="en">
+    <details><summary>The angle is a few degrees off.</summary><p>Calibrate again on level ground, ideally with two-way calibration. Make sure the phone cannot move in its mount; any movement after calibrating changes the angle.</p></details>
+    <details><summary>Which action cameras work?</summary><p>GoPro HERO5 and later (including MAX) record motion data inside the video. Import the original file from the camera, not one re-exported by an editing app, and turn off Horizon Lock. Insta360 and DJI support is in progress. For any other camera, use "Rampa measurement + other camera".</p></details>
+    <details><summary>How does matching by the clock work?</summary><p>Start a Measure recording in Rampa on the phone in the vehicle and film with your other camera at the same time. When you import the video, Rampa lines them up using the time the video was recorded; you can nudge it by tenths of a second.</p></details>
+    <details><summary>Where are my videos?</summary><p>Recordings are kept inside Rampa (Recordings, at the bottom left of the camera screen). When you save or share, a copy with the gauges goes to Photos or the app you choose. The original stays clean, so you can change the look and export again.</p></details>
+    <details><summary>Is Rampa a safety device?</summary><p>No. Rampa is for recording and sharing. Angles come from the phone's sensors and depend on how firmly it is mounted. Always drive within your and your vehicle's limits.</p></details>
+    <details><summary>Contact</summary><p>Write to <a href="mailto:info@phisoftware.com.tr">info@phisoftware.com.tr</a>. Include your iPhone model and, if you can, a screenshot.</p></details>
+  </div>
+  <div data-l="tr">
+    <details><summary>Açı birkaç derece farklı görünüyor.</summary><p>Düz zeminde yeniden sıfırla; mümkünse çift yönlü sıfırlamayla. Telefonun tutucuda oynamadığından emin ol; sıfırlamadan sonra her kayma açıyı değiştirir.</p></details>
+    <details><summary>Hangi aksiyon kameraları çalışıyor?</summary><p>GoPro HERO5 ve sonrası (MAX dahil) hareket verisini videonun içine kaydeder. Kameradan alınmış özgün dosyayı içe aktar, düzenleme uygulamasından yeniden dışa aktarılmışını değil; Ufuk kilidi (Horizon Lock) kapalı olsun. Insta360 ve DJI desteği hazırlanıyor. Başka kameralar için "Rampa ölçümü + başka kamera"yı kullan.</p></details>
+    <details><summary>Saatten eşleme nasıl çalışıyor?</summary><p>Araçtaki telefonda Rampa ile Ölçüm kaydını başlat, aynı anda diğer kamerayla çek. Videoyu içe aktarınca Rampa ikisini videonun çekildiği saate göre hizalar; saniyenin onda biri kadar kaydırabilirsin.</p></details>
+    <details><summary>Videolarım nerede?</summary><p>Kayıtlar Rampa'nın içinde saklanır (kamera ekranının sol altındaki Kayıtlar). Kaydedince ya da paylaşınca göstergeli bir kopya Fotoğraflar'a veya seçtiğin uygulamaya gider. Özgün video temiz kalır; görünümü değiştirip yeniden aktarabilirsin.</p></details>
+    <details><summary>Rampa bir güvenlik aleti mi?</summary><p>Hayır. Rampa kayıt ve paylaşım içindir. Açılar telefonun algılayıcılarından gelir ve telefonun ne kadar sağlam bağlandığına bağlıdır. Her zaman kendinin ve aracının sınırları içinde sür.</p></details>
+    <details><summary>İletişim</summary><p><a href="mailto:info@phisoftware.com.tr">info@phisoftware.com.tr</a> adresine yaz. iPhone modelini ve mümkünse bir ekran görüntüsünü ekle.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 PHI SOFTWARE</span>
+  <span><a href="privacy.html" data-l="en">Privacy policy</a><a href="privacy.html" data-l="tr">Gizlilik politikası</a> · <a href="mailto:info@phisoftware.com.tr">info@phisoftware.com.tr</a></span>
+</div></footer>
+
+<script>
+  const setLang = (l) => {
+    document.documentElement.lang = l;
+    document.querySelectorAll('.langs button').forEach(b => b.classList.toggle('on', b.dataset.set === l));
+    try { localStorage.setItem('rampa-lang', l); } catch (e) {}
+  };
+  let saved = null; try { saved = localStorage.getItem('rampa-lang'); } catch (e) {}
+  setLang(saved || ((navigator.language || 'en').toLowerCase().startsWith('tr') ? 'tr' : 'en'));
+  document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+</script>
+</body>
+</html>
