@@ -5,22 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rampa – Privacy Policy</title>
 <link rel="icon" href="icon.png">
+<meta name="theme-color" content="#0E1012">
 <style>
-  :root { color-scheme: light dark; --accent: #E8650A; }
-  @media (prefers-color-scheme: dark) { :root { --accent: #FF8A2B; } }
-  body { font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
-  h1 { font-size: 32px; margin-bottom: 4px; } h2 { font-size: 21px; margin-top: 32px; }
-  .muted { opacity: .65; } a { color: var(--accent); } hr { margin: 48px 0; border: 0; border-top: 1px solid #8884; }
+  :root { --accent: #E8650A; --bg: #F6F5F3; --surface: #FFFFFF; --text: #121416; --muted: #5E6369; --line: #E6E3DE; }
+  @media (prefers-color-scheme: dark) { :root { --accent: #FF8A2B; --bg: #0B0D0F; --surface: #15181B; --text: #F1F2F3; --muted: #9EA4AA; --line: #24282D; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  .top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, #0E1012 82%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .top div { max-width: 820px; margin: 0 auto; padding: 0 22px; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .top a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .14em; font-size: 15px; }
+  .top a img { width: 30px; height: 30px; border-radius: 8px; }
+  .top a.back { font-weight: 600; letter-spacing: 0; color: rgba(255,255,255,.75); }
+  main { max-width: 820px; margin: 0 auto; padding: 40px 22px 72px; }
+  article { background: var(--surface); border: 1px solid var(--line); border-radius: 26px; padding: 36px clamp(22px, 5vw, 48px); margin-bottom: 24px; }
+  h1 { font-size: clamp(28px, 4.4vw, 38px); letter-spacing: -.03em; line-height: 1.1; margin: 0 0 6px; }
+  h2 { font-size: 20px; letter-spacing: -.01em; margin: 30px 0 6px; }
+  p { margin: 0 0 12px; } .muted { color: var(--muted); margin-bottom: 22px; }
+  a { color: var(--accent); }
+  hr { display: none; }
+  html[lang="tr"] article[lang="en"], html[lang="en"] article[lang="tr"] { display: none; }
+  .top nav { display: flex; align-items: center; gap: 14px; }
+  .langs { display: flex; background: rgba(255,255,255,.1); border-radius: 999px; padding: 3px; }
+  .langs button { background: none; border: 0; color: rgba(255,255,255,.8); font: 650 13px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .langs button.on { background: var(--accent); color: #0E1012; }
 </style>
 </head>
 <body>
+<header class="top"><div><a href="./"><img src="icon.png" alt="">RAMPA</a><nav><span class="langs"><button data-set="en">EN</button><button data-set="tr">TR</button></span></nav></div></header>
+<main>
+<article lang="en">
 <h1>Rampa – Privacy Policy</h1>
 <p class="muted">Last updated: 5 October 2026 · PHI SOFTWARE</p>
 
 <p>Rampa records off-road videos and draws the vehicle's real slope on them. We have no user accounts, we show no ads, we do not track you across apps or websites, and we do not sell or share personal data. Your videos never leave your device unless you share them yourself. We collect anonymous crash reports and usage statistics to improve the app (see below).</p>
 
 <h2>Camera, microphone and motion sensors</h2>
-<p>The camera and microphone are used only to record your video and its sound. The phone's motion sensors measure the slope and side tilt that are drawn on the video. Recordings, measurement logs and the angle data are stored only on your device, inside the app.</p>
+<p>The camera and microphone are used only to record your video and its sound. The phone's motion sensors measure the climb and side slope that are drawn on the video. Recordings, measurement logs and the angle data are stored only on your device, inside the app.</p>
 
 <h2>Videos you import</h2>
 <p>When you import a video from Photos or Files, Rampa copies it into the app on your device and reads the motion data recorded by your action camera (if there is any). Nothing is uploaded.</p>
@@ -34,11 +54,14 @@
 <h2>Ride details and username</h2>
 <p>Vehicle, driver, co-driver, club, trail and other ride details, and the username you add to videos, are stored only on your device and appear only on the videos you export.</p>
 
+<h2>Apple Watch</h2>
+<p>The watch app shows the slope measured by your iPhone and controls recording. If you turn on the camera preview, small camera frames are sent directly from your iPhone to your paired watch over Apple's watch connection; they are not stored and never leave your devices.</p>
+
 <h2>Sharing</h2>
 <p>When you share a video or photo, it goes through the iOS share sheet to the app or person you choose; their own privacy policies apply. Rampa does not upload anything itself.</p>
 
 <h2>Crash reports and usage statistics</h2>
-<p>Rampa uses Google Firebase Crashlytics and Firebase Analytics. When the app crashes, a crash report (device model, iOS version, app version and the technical state of the app) is sent to us. Anonymous usage events tell us which features are used, for example that a video was recorded or exported (with its rough length and format), a video was imported (and the camera model it reports), the device was zeroed or the side-tilt warning fired. They use a random app instance identifier and contain no name, e-mail, account, location, video, or advertising identifier, and they are not linked to you. The contents of your ride details (names of your vehicle, driver, club or trail) are never sent, only whether a field was filled in. Ad personalization is turned off. Google processes this data on our behalf under <a href="https://firebase.google.com/support/privacy">Firebase's privacy terms</a>.</p>
+<p>Rampa uses Google Firebase Crashlytics and Firebase Analytics. When the app crashes, a crash report (device model, iOS version, app version and the technical state of the app) is sent to us. Anonymous usage events tell us which features are used, for example that a video was recorded or exported (with its rough length and format), a video was imported (and the camera model it reports), the phone was calibrated or the side-slope warning went off. They use a random app instance identifier and contain no name, e-mail, account, location, video, or advertising identifier, and they are not linked to you. The contents of your ride details (names of your vehicle, driver, club or trail) are never sent, only whether a field was filled in. Ad personalization is turned off. Google processes this data on our behalf under <a href="https://firebase.google.com/support/privacy">Firebase's privacy terms</a>.</p>
 
 <h2>Deleting your data</h2>
 <p>Delete a recording in the app (Recordings › clip › trash), or delete the app to remove everything it stored. Exported copies in your photo library are yours to keep or delete.</p>
@@ -49,9 +72,10 @@
 <h2>Contact</h2>
 <p>Questions: <a href="mailto:info@phisoftware.com.tr">info@phisoftware.com.tr</a></p>
 
-<hr>
+</article>
 
-<h1 lang="tr">Rampa – Gizlilik Politikası</h1>
+<article lang="tr">
+<h1>Rampa – Gizlilik Politikası</h1>
 <p class="muted">Son güncelleme: 5 Ekim 2026 · PHI SOFTWARE</p>
 <div lang="tr">
 <p>Rampa arazi videoları çeker ve aracın gerçek eğimini videonun üstüne çizer. Kullanıcı hesabı yoktur; reklam göstermeyiz, seni başka uygulama ve sitelerde takip etmeyiz, kişisel veri satmayız veya paylaşmayız. Videoların sen paylaşmadıkça cihazından çıkmaz. Uygulamayı geliştirmek için anonim çökme raporları ve kullanım istatistikleri toplarız (aşağıda).</p>
@@ -62,8 +86,8 @@
 <h2>İçe aktardığın videolar</h2>
 <p>Fotoğraflar'dan ya da Dosyalar'dan bir video içe aktardığında Rampa onu cihazındaki uygulamaya kopyalar ve (varsa) aksiyon kameranın kaydettiği hareket verisini okur. Hiçbir şey yüklenmez.</p>
 
-<h2>Fotoğraf arşivi</h2>
-<p>Rampa yalnızca dışa aktardığın videoları ve fotoğrafları arşivine ekler. Arşivini okumaz; içe aktaracağın videoyu sistemin seçicisinden sen seçersin.</p>
+<h2>Fotoğraflar</h2>
+<p>Rampa yalnızca dışa aktardığın videoları ve fotoğrafları Fotoğraflar'a ekler. Fotoğraflar'ını okumaz; içe aktaracağın videoyu sistemin seçicisinden sen seçersin.</p>
 
 <h2>Konum (isteğe bağlı)</h2>
 <p>"Hız ve rakım"ı açarsan Rampa kayıt sırasında konumunu kullanarak videoda hız ve rakımı gösterir. Konum yalnızca cihazında işlenir; bize ya da başka birine asla gönderilmez.</p>
@@ -71,14 +95,17 @@
 <h2>Sürüş künyesi ve kullanıcı adı</h2>
 <p>Araç, sürücü, yardımcı, kulüp, parkur gibi künye bilgileri ve videolara eklediğin kullanıcı adı yalnızca cihazında saklanır ve yalnızca dışa aktardığın videolarda görünür.</p>
 
+<h2>Apple Watch</h2>
+<p>Saat uygulaması iPhone'unun ölçtüğü eğimi gösterir ve kaydı yönetir. Kamera önizlemesini açarsan küçük kamera kareleri iPhone'undan eşli saatine doğrudan Apple'ın saat bağlantısıyla gönderilir; saklanmaz ve cihazlarından çıkmaz.</p>
+
 <h2>Paylaşım</h2>
 <p>Bir videoyu ya da fotoğrafı paylaştığında iOS paylaşım sayfası üzerinden senin seçtiğin uygulamaya veya kişiye gider; onların gizlilik politikaları geçerlidir. Rampa kendisi hiçbir şey yüklemez.</p>
 
 <h2>Çökme raporları ve kullanım istatistikleri</h2>
-<p>Rampa Google Firebase Crashlytics ve Firebase Analytics kullanır. Uygulama çökerse bir çökme raporu (cihaz modeli, iOS sürümü, uygulama sürümü ve uygulamanın teknik durumu) bize gönderilir. Anonim kullanım olayları hangi özelliklerin kullanıldığını gösterir; örneğin bir videonun kaydedildiği ya da dışa aktarıldığı (kabaca süresi ve biçimiyle), bir videonun içe aktarıldığı (ve bildirdiği kamera modeli), sıfırlama yapıldığı ya da yan yatış uyarısının çaldığı. Rastgele bir uygulama kimliği kullanırlar; ad, e-posta, hesap, konum, video ya da reklam kimliği içermezler ve seninle ilişkilendirilmezler. Künyenin içeriği (araç, sürücü, kulüp ya da parkur adları) asla gönderilmez, yalnızca bir alanın dolu olup olmadığı. Reklam kişiselleştirme kapalıdır. Google bu verileri bizim adımıza <a href="https://firebase.google.com/support/privacy">Firebase gizlilik koşullarına</a> göre işler.</p>
+<p>Rampa Google Firebase Crashlytics ve Firebase Analytics kullanır. Uygulama çökerse bir çökme raporu (cihaz modeli, iOS sürümü, uygulama sürümü ve uygulamanın teknik durumu) bize gönderilir. Anonim kullanım olayları hangi özelliklerin kullanıldığını gösterir; örneğin bir videonun kaydedildiği ya da dışa aktarıldığı (kabaca süresi ve biçimiyle), bir videonun içe aktarıldığı (ve bildirdiği kamera modeli), sıfırlama yapıldığı ya da yan yatış uyarısının devreye girdiği. Rastgele bir uygulama kimliği kullanırlar; ad, e-posta, hesap, konum, video ya da reklam kimliği içermezler ve seninle ilişkilendirilmezler. Künyenin içeriği (araç, sürücü, kulüp ya da parkur adları) asla gönderilmez, yalnızca bir alanın dolu olup olmadığı. Reklam kişiselleştirme kapalıdır. Google bu verileri bizim adımıza <a href="https://firebase.google.com/support/privacy">Firebase gizlilik koşullarına</a> göre işler.</p>
 
 <h2>Verilerini silmek</h2>
-<p>Bir kaydı uygulamada sil (Kayıtlar › klip › çöp kutusu) ya da uygulamayı silerek sakladığı her şeyi kaldır. Fotoğraf arşivine aktardığın kopyalar senindir; istediğin gibi saklar ya da silersin.</p>
+<p>Bir kaydı uygulamada sil (Kayıtlar › klip › çöp kutusu) ya da uygulamayı silerek sakladığı her şeyi kaldır. Fotoğraflar'a aktardığın kopyalar senindir; istediğin gibi saklar ya da silersin.</p>
 
 <h2>Çocuklar</h2>
 <p>Rampa, çocuklar dahil kimseden bilerek kişisel bilgi toplamaz.</p>
@@ -86,5 +113,21 @@
 <h2>İletişim</h2>
 <p>Sorular: <a href="mailto:info@phisoftware.com.tr">info@phisoftware.com.tr</a></p>
 </div>
+</article>
+</main>
+<script>
+  (function () {
+    var root = document.documentElement, saved = null;
+    try { saved = localStorage.getItem("rampa-lang"); } catch (e) {}
+    var titles = { en: "Rampa – Privacy Policy", tr: "Rampa – Gizlilik Politikası" };
+    function set(l) {
+      root.lang = l; document.title = titles[l];
+      document.querySelectorAll(".langs button").forEach(function (b) { b.classList.toggle("on", b.dataset.set === l); });
+      try { localStorage.setItem("rampa-lang", l); } catch (e) {}
+    }
+    document.querySelectorAll(".langs button").forEach(function (b) { b.addEventListener("click", function () { set(b.dataset.set); }); });
+    set(saved || ((navigator.language || "en").toLowerCase().indexOf("tr") === 0 ? "tr" : "en"));
+  })();
+</script>
 </body>
 </html>
