@@ -14,7 +14,8 @@
   // Kaynak: ?src=instagram (varsayılan). Başka kaynak için ?src=tiktok gibi; Play'de utm_source olarak görünür.
   (function () {
     var src = (new URLSearchParams(location.search).get("src") || "instagram").replace(/[^a-z0-9_-]/gi, "");
-    var ios = "https://apps.apple.com/app/id6819189459?ppid=c1b99690-1d07-4501-80bf-0a4e09aee9b0";
+    // App Store kampanya bağlantısı: pt = hesap (provider) kodu, ct = kaynak → Analytics › Kampanyalar'da ayrı satır.
+    var ios = "https://apps.apple.com/app/id6819189459?ppid=c1b99690-1d07-4501-80bf-0a4e09aee9b0&pt=119007264&ct=" + src + "&mt=8";
     var android = "https://play.google.com/store/apps/details?id=com.phisoftware.rampa.app&referrer=" +
       encodeURIComponent("utm_source=" + src + "&utm_medium=social");
     window.RAMPA = { ios: ios, android: android };
