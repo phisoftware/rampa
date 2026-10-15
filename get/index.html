@@ -21,8 +21,17 @@
     window.RAMPA = { ios: ios, android: android };
     var ua = navigator.userAgent || "";
     var isIOS = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf("Macintosh") > -1 && navigator.maxTouchPoints > 1);
-    if (isIOS) location.replace(ios);
-    else if (/Android/i.test(ua)) location.replace(android);
+    var platform = isIOS ? "ios" : /Android/i.test(ua) ? "android" : "web";
+    var target = platform === "ios" ? ios : platform === "android" ? android : null;
+    // Tıklama sayacı (GoatCounter, çerezsiz): /get/<kaynak>/<platform>. Yönlendirme sayım gidince ya da en geç 0,6 sn sonra.
+    var done = false;
+    function go() { if (!done && target) { done = true; location.replace(target); } }
+    var pixel = new Image();
+    pixel.onload = pixel.onerror = go;
+    pixel.src = "https://rampaoffroad.goatcounter.com/count?p=" + encodeURIComponent("/get/" + src + "/" + platform) +
+      "&t=" + encodeURIComponent("Rampa indir · " + src) + "&r=" + encodeURIComponent(document.referrer) +
+      "&s=" + encodeURIComponent(screen.width + "," + screen.height + "," + (window.devicePixelRatio || 1)) + "&rnd=" + Math.random().toString(36).slice(2);
+    setTimeout(go, 600);
   })();
 </script>
 <style>
