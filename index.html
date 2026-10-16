@@ -101,7 +101,7 @@
   .gallery img { width: 100%; height: auto; aspect-ratio: 540 / 1173; border-radius: 26px; scroll-snap-align: start; box-shadow: var(--shadow); background: var(--ink-2); }
   /* Masaüstünde ızgara (fareyle yatay kaydırma zahmetli); telefonda kaydırılan şerit. */
   @media (min-width: 900px) {
-    .gallery { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); grid-auto-columns: auto; overflow: visible; padding: 6px 0 0; margin: 0; gap: 22px; }
+    .gallery { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); grid-auto-columns: auto; overflow: visible; padding: 6px 0 0; margin: 0; gap: 22px; }
   }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
@@ -181,8 +181,8 @@
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7L3.6 2.3zm10.8 10.8 2.7 2.7-11 6.3c-.4.2-.8.2-1.1 0l9.4-9zm3.7-3.7 3 1.7c.9.5.9 1.3 0 1.8l-3 1.7-3-3 3-3.2zM5.3 1.9c.3-.2.7-.2 1.1 0l11 6.3-2.7 2.7-9.4-9z"/></svg>
         <span><small data-l="en">Get it on</small><small data-l="tr">İndir</small>Google Play</span>
       </a>
-      <span class="facts" data-l="en">Free · 10 languages · no account</span>
-      <span class="facts" data-l="tr">Ücretsiz · 10 dil · hesap yok</span>
+      <span class="facts" data-l="en">Free · Pro is a one-time purchase · 10 languages · no account</span>
+      <span class="facts" data-l="tr">Ücretsiz · Pro tek seferlik · 10 dil · hesap yok</span>
     </div>
   </div>
   <div class="phones" aria-hidden="true">
@@ -197,16 +197,18 @@
   <p class="sub" data-l="en">Record with the gauges on screen, then edit the look and share.</p>
   <p class="sub" data-l="tr">Göstergeler ekrandayken çek, görünümü düzenle, paylaş.</p>
   <div class="gallery" data-l="en">
-    <img src="img/en-1.jpg" alt="Live camera with slope cards" loading="lazy"><img src="img/en-2.jpg" alt="Vertical story export" loading="lazy">
-    <img src="img/en-3.jpg" alt="Editing the look on the video" loading="lazy"><img src="img/en-4.jpg" alt="Measure mode with big gauges" loading="lazy">
-    <img src="img/en-5.jpg" alt="Action camera footage" loading="lazy"><img src="img/en-6.jpg" alt="Footage from another camera" loading="lazy">
-    <img src="img/en-7.jpg" alt="Manual measuring" loading="lazy"><img src="img/en-8.jpg" alt="Side-slope warning in Settings" loading="lazy">
+    <img src="img/en-01.jpg" alt="Live camera with slope cards" loading="lazy"><img src="img/en-02.jpg" alt="Vertical story export" loading="lazy">
+    <img src="img/en-03.jpg" alt="Ride summary on the map" loading="lazy"><img src="img/en-04.jpg" alt="Vehicle card with records" loading="lazy">
+    <img src="img/en-05.jpg" alt="Editing the look on the video" loading="lazy"><img src="img/en-06.jpg" alt="Sharing a club by QR code" loading="lazy">
+    <img src="img/en-07.jpg" alt="Trimming a clip (Pro)" loading="lazy"><img src="img/en-08.jpg" alt="Action camera footage (Pro)" loading="lazy">
+    <img src="img/en-09.jpg" alt="Measure mode with big gauges" loading="lazy"><img src="img/en-10.jpg" alt="Side-slope warning in Settings" loading="lazy">
   </div>
   <div class="gallery" data-l="tr">
-    <img src="img/tr-1.jpg" alt="Göstergeli canlı kamera" loading="lazy"><img src="img/tr-2.jpg" alt="Dikey hikâye" loading="lazy">
-    <img src="img/tr-3.jpg" alt="Videonun üstünde görünümü düzenleme" loading="lazy"><img src="img/tr-4.jpg" alt="Büyük göstergeli ölçüm modu" loading="lazy">
-    <img src="img/tr-5.jpg" alt="Aksiyon kamerası videosu" loading="lazy"><img src="img/tr-6.jpg" alt="Başka kameradan video" loading="lazy">
-    <img src="img/tr-7.jpg" alt="Elle ölçüm" loading="lazy"><img src="img/tr-8.jpg" alt="Ayarlar'da yan yatış uyarısı" loading="lazy">
+    <img src="img/tr-01.jpg" alt="Göstergeli canlı kamera" loading="lazy"><img src="img/tr-02.jpg" alt="Dikey hikâye" loading="lazy">
+    <img src="img/tr-03.jpg" alt="Haritada sürüş özeti" loading="lazy"><img src="img/tr-04.jpg" alt="Rekorlu araç kartı" loading="lazy">
+    <img src="img/tr-05.jpg" alt="Videonun üstünde görünümü düzenleme" loading="lazy"><img src="img/tr-06.jpg" alt="Kulübü QR ile paylaşma" loading="lazy">
+    <img src="img/tr-07.jpg" alt="Klibi kırpma (Pro)" loading="lazy"><img src="img/tr-08.jpg" alt="Aksiyon kamerası videosu (Pro)" loading="lazy">
+    <img src="img/tr-09.jpg" alt="Büyük göstergeli ölçüm modu" loading="lazy"><img src="img/tr-10.jpg" alt="Ayarlar'da yan yatış uyarısı" loading="lazy">
   </div>
 </div></section>
 
@@ -233,7 +235,7 @@
       <p data-l="en">Drag every gauge where you want it, give each its own color, hide what you don't need.</p>
       <p data-l="tr">Her göstergeyi istediğin yere sürükle, her birine ayrı renk ver, istemediğini gizle.</p></div>
     <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="6" width="14" height="12" rx="2.5"/><path d="m16.5 10 5-3v10l-5-3"/></svg>
-      <h3 data-l="en">Other cameras, too</h3><h3 data-l="tr">Başka kameralar da</h3>
+      <h3 data-l="en">Other cameras, too · Pro</h3><h3 data-l="tr">Başka kameralar da · Pro</h3>
       <p data-l="en">Action-cam files with motion data, any camera matched by the clock to a Rampa measurement, or marking it by hand.</p>
       <p data-l="tr">Hareket verili aksiyon kamerası dosyaları, saatten Rampa ölçümüyle eşlenen herhangi bir kamera ya da elle işaretleme.</p></div>
     <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3 2.5 20h19L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
@@ -244,6 +246,22 @@
       <h3 data-l="en">Your rig on the video</h3><h3 data-l="tr">Aracın videoda</h3>
       <p data-l="en">Vehicle, tires, lift, driver, club, trail, tire pressure, 2H/4H/4L and lockers. All optional.</p>
       <p data-l="tr">Araç, lastik, lift, sürücü, kulüp, parkur, lastik basıncı, 2H/4H/4L ve kilitler. Hepsi isteğe bağlı.</p></div>
+    <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8 14l3-3 2 2 3-3M8 18h8"/></svg>
+      <h3 data-l="en">Vehicle card</h3><h3 data-l="tr">Araç kartı</h3>
+      <p data-l="en">A card for your rig with its steepest climb and biggest side slope, ready for your story.</p>
+      <p data-l="tr">Aracın için en dik tırmanışı ve en büyük yan yatışıyla bir kart; hikâyene hazır.</p></div>
+    <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg>
+      <h3 data-l="en">Clubs and events</h3><h3 data-l="tr">Kulüp ve etkinlik</h3>
+      <p data-l="en">Set up a club badge and share it by QR code or link. Members join for free and show it on their videos.</p>
+      <p data-l="tr">Kulüp rozetini kur, QR kod ya da bağlantıyla paylaş. Üyeler ücretsiz katılır, rozeti videolarında gösterir.</p></div>
+    <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
+      <h3 data-l="en">Ride summary</h3><h3 data-l="tr">Sürüş özeti</h3>
+      <p data-l="en">Your route on a satellite map, colored by slope, with elevation and the steepest moments.</p>
+      <p data-l="tr">Rotan uydu haritasında eğime göre renkli; rakım ve en dik anlarla birlikte.</p></div>
+    <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+      <h3 data-l="en">Trim · Pro</h3><h3 data-l="tr">Kırp · Pro</h3>
+      <p data-l="en">Keep exactly the part of the clip you want, then save or share that part.</p>
+      <p data-l="tr">Klibin tam istediğin bölümünü seç; kaydetme ve paylaşma o bölümle yapılır.</p></div>
     <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
       <h3 data-l="en">Private</h3><h3 data-l="tr">Gizli kalır</h3>
       <p data-l="en">No account. Your videos stay on your phone until you share them. <a href="privacy.html">Privacy policy</a></p>
@@ -273,12 +291,53 @@
   <div class="shot"><div class="phone"><img src="img/en-raw-edit.jpg" data-l="en" alt="" loading="lazy"><img src="img/tr-raw-edit.jpg" data-l="tr" alt="" loading="lazy"></div></div>
 </div></section>
 
+<section id="ride"><div class="wrap spot flip">
+  <div class="text reveal">
+    <p class="kicker" data-l="en">New in 1.1</p><p class="kicker" data-l="tr">1.1'de yeni</p>
+    <h2 data-l="en">Every ride, summed up</h2><h2 data-l="tr">Her sürüşün özeti</h2>
+    <p class="sub" data-l="en">Rampa groups your videos, measurements and route into rides on its own.</p>
+    <p class="sub" data-l="tr">Rampa videolarını, ölçümlerini ve rotanı kendiliğinden sürüşlere ayırır.</p>
+    <ul data-l="en">
+      <li><b>Map.</b> The route on a satellite map, green on flat ground, orange on steep and red on very steep sections.</li>
+      <li><b>Numbers.</b> Distance, time, climb, steepest angle, biggest side slope and highest point.</li>
+      <li><b>Share.</b> A summary image for your story, or a summary video and GPX with Rampa Pro.</li>
+    </ul>
+    <ul data-l="tr">
+      <li><b>Harita.</b> Rota uydu haritasında; düzde yeşil, dikte turuncu, çok dikte kırmızı.</li>
+      <li><b>Değerler.</b> Mesafe, süre, tırmanış, en dik açı, en büyük yan yatış ve en yüksek nokta.</li>
+      <li><b>Paylaş.</b> Hikâyen için özet görseli; Rampa Pro ile özet videosu ve GPX.</li>
+    </ul>
+  </div>
+  <div class="shot"><div class="phone"><img src="img/en-raw-ride.jpg" data-l="en" alt="" loading="lazy"><img src="img/tr-raw-ride.jpg" data-l="tr" alt="" loading="lazy"></div></div>
+</div></section>
+
+<section id="pro"><div class="wrap">
+  <p class="kicker">Rampa Pro</p>
+  <h2 data-l="en">One purchase, no subscription</h2><h2 data-l="tr">Tek seferlik, abonelik yok</h2>
+  <p class="sub" data-l="en">Recording, the gauges, stories, the vehicle card, joining clubs and the ride summary are free. Rampa Pro adds:</p>
+  <p class="sub" data-l="tr">Kayıt, göstergeler, hikâye, araç kartı, kulübe katılmak ve sürüş özeti ücretsiz. Rampa Pro şunları ekler:</p>
+  <div class="grid">
+    <div class="card reveal"><h3 data-l="en">Other cameras</h3><h3 data-l="tr">Başka kameralar</h3>
+      <p data-l="en">Action-cam files, any camera matched to a Rampa measurement, or marking by hand.</p>
+      <p data-l="tr">Aksiyon kamerası dosyaları, Rampa ölçümüyle eşlenen herhangi bir kamera ya da elle işaretleme.</p></div>
+    <div class="card reveal"><h3 data-l="en">Cards and clubs</h3><h3 data-l="tr">Kart ve kulüp</h3>
+      <p data-l="en">Every card style with your photo, and creating your own club.</p>
+      <p data-l="tr">Fotoğraflı bütün kart biçimleri ve kendi kulübünü kurmak.</p></div>
+    <div class="card reveal"><h3 data-l="en">Ride video and GPX</h3><h3 data-l="tr">Özet videosu ve GPX</h3>
+      <p data-l="en">An animated summary of the ride and the route as a GPX file.</p>
+      <p data-l="tr">Sürüşün hareketli özeti ve rotanın GPX dosyası.</p></div>
+    <div class="card reveal"><h3 data-l="en">Trim and resize</h3><h3 data-l="tr">Kırp ve büyüt</h3>
+      <p data-l="en">Trim clips, resize items with two fingers and export without the Rampa signature.</p>
+      <p data-l="tr">Klibi kırp, öğeleri iki parmakla büyüt, videoyu Rampa imzası olmadan dışa aktar.</p></div>
+  </div>
+</div></section>
+
 <section><div class="wrap spot flip">
   <div class="text reveal">
     <p class="kicker" data-l="en">Any camera</p><p class="kicker" data-l="tr">Her kamerayla</p>
     <h2 data-l="en">Filmed with something else?</h2><h2 data-l="tr">Başka kamerayla mı çektin?</h2>
-    <p class="sub" data-l="en">Three ways to get the slope onto footage you didn't shoot with Rampa.</p>
-    <p class="sub" data-l="tr">Rampa ile çekmediğin videolara eğimi eklemenin üç yolu var.</p>
+    <p class="sub" data-l="en">Three ways to get the slope onto footage you didn't shoot with Rampa, with Rampa Pro.</p>
+    <p class="sub" data-l="tr">Rampa ile çekmediğin videolara eğimi eklemenin üç yolu var (Rampa Pro).</p>
     <ul data-l="en">
       <li><b>Action camera.</b> GoPro HERO5 and later (MAX included) save motion data in the file. Rampa reads it for the slope and the horizon.</li>
       <li><b>Measure mode + another camera.</b> Record in Measure mode on the phone and film with any camera. Rampa lines the two up by the clock.</li>
@@ -337,6 +396,8 @@
     <details><summary>How do I make a vertical story?</summary><p>Record with the phone in landscape. In the clip, choose Story: the video becomes a strip in the middle, the steepest moment goes on top and big gauges below. A clip filmed in portrait is already vertical and ready for Reels as it is.</p></details>
     <details><summary>Can I post straight to Instagram?</summary><p>Yes. In the clip, tap Instagram. Story sends the steepest 15 seconds, vertical, straight to your Instagram Story. For Reels or a post, Rampa saves the video to Photos and opens Instagram so you can pick it.</p></details>
     <details><summary>Which action cameras work?</summary><p>GoPro HERO5 and later (including MAX) record motion data inside the video. Import the original file from the camera, not one re-exported by an editing app, and turn off Horizon Lock. Insta360 and DJI support is in the works. For any other camera, use "Measure mode + another camera".</p></details>
+    <details><summary>What does Rampa Pro include?</summary><p>Rampa Pro is a one-time purchase, with no subscription. It adds video from other cameras, every vehicle card style with a photo, creating a club, the ride summary video and GPX, trimming, resizing items and exporting without the Rampa signature. Everything else is free. If you installed Rampa before Pro arrived, Pro is already yours as a founding member.</p></details>
+    <details><summary>How do I join a club?</summary><p>Scan the club's QR code with your phone camera or open the club link. Rampa opens and you join, for free. If Rampa isn't installed, its store page opens first.</p></details>
     <details><summary>Where are my videos?</summary><p>Recordings stay inside Rampa (Recordings, bottom left of the camera screen). When you save or share, a copy with the gauges goes to Photos or the app you pick. The original stays clean, so you can change the look and export again.</p></details>
     <details><summary>How do I use the Apple Watch app?</summary><p>Open the camera screen in Rampa on the iPhone, then open Rampa on the watch. To see the camera image on the watch, turn on Settings › Apple Watch › Camera preview on watch. It uses more battery, so frames are sent only while that page is open on the watch.</p></details>
     <details><summary>Is Rampa a safety device?</summary><p>No. Rampa is for recording and sharing. The angles come from the phone's sensors and depend on how firmly it is mounted. Always drive within your own and your vehicle's limits.</p></details>
@@ -347,6 +408,8 @@
     <details><summary>Dikey hikâyeyi nasıl yaparım?</summary><p>Telefonu yatay tutup çek. Klipte Hikâye'yi seç: video ortada bir şerit olur, en dik an üstte, büyük göstergeler altta durur. Dikey çektiğin klip zaten dikeydir, olduğu gibi Reels'e hazırdır.</p></details>
     <details><summary>Doğrudan Instagram'a paylaşabilir miyim?</summary><p>Evet. Klipte Instagram'a dokun. Hikâye, en dik 15 saniyeyi dikey olarak doğrudan Instagram hikâyene gönderir. Reels ya da gönderi için Rampa videoyu Fotoğraflar'a kaydeder ve Instagram'ı açar, oradan seçersin.</p></details>
     <details><summary>Hangi aksiyon kameraları çalışıyor?</summary><p>GoPro HERO5 ve sonrası (MAX dahil) hareket verisini videonun içine kaydeder. Kameradan aldığın özgün dosyayı içe aktar, düzenleme uygulamasından yeniden dışa aktarılmışını değil; Ufuk Kilidi (Horizon Lock) kapalı olsun. Insta360 ve DJI desteği üzerinde çalışıyoruz. Başka kameralar için "Rampa ölçümü + başka kamera"yı kullan.</p></details>
+    <details><summary>Rampa Pro'da neler var?</summary><p>Rampa Pro tek seferlik bir satın almadır, abonelik yoktur. Başka kameradan video, fotoğraflı bütün araç kartı biçimleri, kulüp kurma, sürüş özeti videosu ve GPX, kırpma, öğeleri büyütme ve Rampa imzası olmadan dışa aktarma ekler. Geri kalan her şey ücretsizdir. Rampa'yı Pro gelmeden önce kurduysan Pro kurucu üye olarak zaten senin.</p></details>
+    <details><summary>Bir kulübe nasıl katılırım?</summary><p>Kulübün QR kodunu telefonunun kamerasıyla okut ya da kulüp bağlantısını aç. Rampa açılır ve ücretsiz katılırsın. Rampa yüklü değilse önce mağaza sayfası açılır.</p></details>
     <details><summary>Videolarım nerede?</summary><p>Kayıtlar Rampa'nın içinde durur (kamera ekranının sol altındaki Kayıtlar). Kaydedince ya da paylaşınca göstergeli bir kopya Fotoğraflar'a ya da seçtiğin uygulamaya gider. Özgün video temiz kalır; görünümü değiştirip yeniden dışa aktarabilirsin.</p></details>
     <details><summary>Apple Watch uygulamasını nasıl kullanırım?</summary><p>iPhone'da Rampa'nın kamera ekranını aç, sonra saatte Rampa'yı aç. Kamera görüntüsünü saatte görmek için Ayarlar › Apple Watch › Saatte kamera önizlemesi'ni aç. Pili daha çok kullandığı için görüntü yalnızca saatte o sayfa açıkken gönderilir.</p></details>
     <details><summary>Rampa bir güvenlik cihazı mı?</summary><p>Hayır. Rampa kaydetmek ve paylaşmak içindir. Açılar telefonun algılayıcılarından gelir ve telefonun ne kadar sağlam bağlandığına bağlıdır. Her zaman kendinin ve aracının sınırları içinde sür.</p></details>
