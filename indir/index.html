@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rampa · Yokuş videoda düz görünmesin</title>
+<meta name="description" content="Rampa off-road videona gerçek eğimi ve 0° ufku çizer. iPhone ve Android'de ücretsiz.">
+<meta property="og:title" content="Rampa · Yokuş videoda düz görünmesin">
+<meta property="og:description" content="Off-road videona gerçek eğimi çizer. Ücretsiz, hesap yok.">
+<meta property="og:image" content="https://phisoftware.github.io/rampa/img/og.jpg">
+<meta name="theme-color" content="#0E1012">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<!-- Reklam açılış sayfası (Instagram reklamı, 22.10.2026). /get anında yönlendirdiği için Meta ziyareti ölçemiyordu;
+     burada sayfa yüklenir, mağazaya düğmeyle gidilir. Sayım: /ad/<kaynak>/<platform>, /tik/<kaynak>/<mağaza>. -->
+<style>
+  :root { --ink: #0E1012; --ink-2: #16191C; --accent: #FF8A2B; --accent-deep: #E8650A; --text: #F1F2F3; --muted: #9EA4AA; --line: #24282D; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--ink); color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: radial-gradient(700px 420px at 85% 0%, rgba(255,138,43,.28), transparent 62%), linear-gradient(170deg, #1A1E22 0%, #0B0D0F 70%) fixed; }
+  html[lang="tr"] [data-l="en"], html[lang="en"] [data-l="tr"] { display: none !important; }
+  main { max-width: 460px; margin: 0 auto; padding: calc(20px + env(safe-area-inset-top)) 16px calc(120px + env(safe-area-inset-bottom)); }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .14em; font-size: 15px; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  h1 { font-size: clamp(30px, 8.6vw, 40px); line-height: 1.08; letter-spacing: -.02em; margin: 18px 0 8px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lead { color: var(--muted); margin: 0 0 18px; font-size: 16px; }
+  /* 9:16 video 4:5 kırpılır: göstergeler ve ufuk ilk ekranda, indir düğmesinin üstünde kalsın. */
+  .shot { position: relative; border-radius: 26px; overflow: hidden; background: #000; aspect-ratio: 4 / 5;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08); }
+  .shot video, .shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 86%; display: block; }
+  .tag { position: absolute; left: 12px; bottom: 12px; background: rgba(14,16,18,.72); backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); padding: 6px 11px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  ul { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+  li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; background: var(--ink-2);
+    border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
+  li .i { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,138,43,.14); }
+  li .i svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  li b { display: block; font-size: 16px; }
+  li span { color: var(--muted); font-size: 15px; }
+  .more { display: block; text-align: center; margin: 22px 0 0; color: var(--accent); text-decoration: none; font-size: 15px; }
+  .cta { position: fixed; inset: auto 0 0 0; z-index: 5; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, rgba(11,13,15,.96) 60%, rgba(11,13,15,0)); }
+  .cta .in { max-width: 460px; margin: 0 auto; display: grid; gap: 8px; }
+  a.store { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; border-radius: 16px;
+    background: var(--accent); color: var(--ink); font-weight: 800; font-size: 18px; text-decoration: none; }
+  a.store:active { background: var(--accent-deep); }
+  a.store svg { width: 22px; height: 22px; fill: currentColor; }
+  a.store[hidden] { display: none; }
+  .fine { text-align: center; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><img src="../icon.png" alt="">RAMPA</div>
+
+  <h1 data-l="tr">Yokuş videoda <em>düz</em> görünmesin.</h1>
+  <h1 data-l="en">Hills shouldn't look <em>flat</em> on video.</h1>
+  <p class="lead" data-l="tr">Telefon araçla birlikte eğildiği için tırmandığın yokuş videoda düz görünür. Rampa gerçek eğimi ve 0° ufku videonun üstüne çizer.</p>
+  <p class="lead" data-l="en">Your phone tilts with the truck, so the climb looks flat on video. Rampa draws the real slope and the 0° horizon right on your footage.</p>
+
+  <div class="shot">
+    <video src="rampa.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+    <div class="tag" data-l="tr">Gerçek çekim · Rampa ile</div>
+    <div class="tag" data-l="en">Real footage · made with Rampa</div>
+  </div>
+
+  <ul>
+    <li><div class="i"><svg viewBox="0 0 24 24"><path d="M3 19h18L3 7z"/><path d="M3 19h6"/></svg></div>
+      <div><b data-l="tr">Gerçek eğim ve ufuk</b><b data-l="en">Real slope and horizon</b>
+        <span data-l="tr">Yokuş ve yan yatış yüzde ve derece olarak, kayıt sırasında ekranda.</span>
+        <span data-l="en">Climb and side tilt in percent and degrees, live while you record.</span></div></li>
+    <li><div class="i"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 6h2"/></svg></div>
+      <div><b data-l="tr">Tek dokunuşla Reels</b><b data-l="en">One-tap Reels</b>
+        <span data-l="tr">En dik 15 saniyeyi Rampa seçer, dikey video paylaşıma hazır.</span>
+        <span data-l="en">Rampa picks the steepest 15 seconds; a vertical clip ready to share.</span></div></li>
+    <li><div class="i"><svg viewBox="0 0 24 24"><path d="M3 15l2-5h14l2 5v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+      <div><b data-l="tr">Aracın videoda</b><b data-l="en">Your rig on video</b>
+        <span data-l="tr">Araç, lastik, lift, kulüp ve parkur; rekorlarınla araç kartı.</span>
+        <span data-l="en">Vehicle, tyres, lift, club and trail; a rig card with your records.</span></div></li>
+    <li><div class="i"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+      <div><b data-l="tr">Ücretsiz, hesap yok</b><b data-l="en">Free, no account</b>
+        <span data-l="tr">Videoların telefonunda kalır. Pro tek seferlik, abonelik yok.</span>
+        <span data-l="en">Your videos stay on your phone. Pro is a one-time purchase, no subscription.</span></div></li>
+  </ul>
+
+  <a class="more" id="more" href="../"><span data-l="tr">Daha fazlası →</span><span data-l="en">Learn more →</span></a>
+</main>
+
+<div class="cta"><div class="in">
+  <a class="store" data-store="ios" href="https://apps.apple.com/app/id6819189459">
+    <svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
+    <span data-l="tr">App Store'dan ücretsiz indir</span><span data-l="en">Free on the App Store</span></a>
+  <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.phisoftware.rampa.app">
+    <svg viewBox="0 0 24 24"><path d="M4 2.5v19l10-9.5zM15.2 13.1l2.6 2.5-11 6.3zM15.2 10.9L6.8 2.1l11 6.3zM18.9 9.1l2.6 1.5c.7.4.7 1.4 0 1.8l-2.6 1.5-2.8-2.4z"/></svg>
+    <span data-l="tr">Google Play'den ücretsiz indir</span><span data-l="en">Free on Google Play</span></a>
+  <div class="fine" data-l="tr">iPhone ve Android · 10 dil · hesap yok</div>
+  <div class="fine" data-l="en">iPhone and Android · 10 languages · no account</div>
+</div></div>
+
+<script>
+  (function () {
+    // Dil: ?lang=tr|en (reklam bağlantısı), yoksa telefonun dili.
+    var q = new URLSearchParams(location.search);
+    var lang = q.get("lang") === "en" || q.get("lang") === "tr" ? q.get("lang") :
+      ((navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+    document.documentElement.lang = lang;
+    var src = (q.get("src") || "ig_reklam").replace(/[^a-z0-9_-]/gi, "").slice(0, 40) || "ig_reklam";
+    var ua = navigator.userAgent || "";
+    var isIOS = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf("Macintosh") > -1 && navigator.maxTouchPoints > 1);
+    var platform = isIOS ? "ios" : /Android/i.test(ua) ? "android" : "web";
+    // iPhone → App Store Instagram özel ürün sayfası + kampanya kodu; Android → Play, kaynak utm ile.
+    var ios = "https://apps.apple.com/app/id6819189459?ppid=c1b99690-1d07-4501-80bf-0a4e09aee9b0&pt=119007264&ct=" + src + "&mt=8";
+    var android = "https://play.google.com/store/apps/details?id=com.phisoftware.rampa.app&referrer=" +
+      encodeURIComponent("utm_source=" + src + "&utm_medium=paid_social");
+    function count(path, title) {
+      var url = "https://rampaoffroad.goatcounter.com/count?p=" + encodeURIComponent(path) + "&t=" + encodeURIComponent(title) +
+        "&r=" + encodeURIComponent(document.referrer) + "&s=" + encodeURIComponent(screen.width + "," + screen.height + "," + (window.devicePixelRatio || 1)) +
+        "&rnd=" + Math.random().toString(36).slice(2);
+      if (navigator.sendBeacon && navigator.sendBeacon(url)) return;
+      new Image().src = url;
+    }
+    document.querySelectorAll("a.store[data-store]").forEach(function (a) {
+      var store = a.dataset.store;
+      a.href = store === "ios" ? ios : android;
+      if (platform !== "web" && store !== platform) a.hidden = true;
+      a.addEventListener("click", function () { count("/tik/" + src + "/" + (store === "ios" ? "appstore" : "play"), "Mağaza tıklaması · " + src); });
+    });
+    document.getElementById("more").href = "../?src=" + encodeURIComponent(src);
+    document.title = lang === "en" ? "Rampa · Hills shouldn't look flat on video" : document.title;
+    count("/ad/" + src + "/" + platform, "Reklam sayfası · " + src);
+  })();
+</script>
+</body>
+</html>
