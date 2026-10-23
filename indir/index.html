@@ -12,7 +12,8 @@
 <link rel="icon" href="../icon.png">
 <link rel="apple-touch-icon" href="../icon.png">
 <!-- Reklam açılış sayfası (Instagram reklamı, 22.10.2026). /get anında yönlendirdiği için Meta ziyareti ölçemiyordu;
-     burada sayfa yüklenir, mağazaya düğmeyle gidilir. Sayım: /ad/<kaynak>/<platform>, /tik/<kaynak>/<mağaza>. -->
+     burada sayfa yüklenir, telefonda 1,2 sn sonra bir kez kendiliğinden mağazaya gider (dönen sayfayı görür), düğme de var.
+     Sayım: /ad/<kaynak>/<platform> açılış, /auto/<kaynak>/<platform> otomatik yönlendirme, /tik/<kaynak>/<mağaza> düğme. -->
 <style>
   :root { --ink: #0E1012; --ink-2: #16191C; --accent: #FF8A2B; --accent-deep: #E8650A; --text: #F1F2F3; --muted: #9EA4AA; --line: #24282D; }
   * { box-sizing: border-box; }
@@ -112,6 +113,7 @@
     var ua = navigator.userAgent || "";
     var isIOS = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf("Macintosh") > -1 && navigator.maxTouchPoints > 1);
     var platform = isIOS ? "ios" : /Android/i.test(ua) ? "android" : "web";
+    if (q.get("platform") === "ios" || q.get("platform") === "android") platform = q.get("platform"); // deneme için
     // iPhone → App Store Instagram özel ürün sayfası + kampanya kodu; Android → Play, kaynak utm ile.
     var ios = "https://apps.apple.com/app/id6819189459?ppid=c1b99690-1d07-4501-80bf-0a4e09aee9b0&pt=119007264&ct=" + src + "&mt=8";
     var android = "https://play.google.com/store/apps/details?id=com.phisoftware.rampa.app&referrer=" +
@@ -132,6 +134,25 @@
     document.getElementById("more").href = "../?src=" + encodeURIComponent(src);
     document.title = lang === "en" ? "Rampa · Hills shouldn't look flat on video" : document.title;
     count("/ad/" + src + "/" + platform, "Reklam sayfası · " + src);
+
+    // Telefonda sayfa yüklenince bir kez kendiliğinden mağazaya (Meta ziyareti saymış olur); mağazadan dönen sayfayı
+    // görür, yeniden yönlendirilmez. Kullanıcı o arada kaydırır / dokunursa okuyordur, yönlendirme yok. ?auto=0 kapatır.
+    // Uygulama içi tarayıcı dokunuşsuz mağaza açmayı engellerse sayfa ve düğme olduğu gibi kalır.
+    var key = "rampa-auto-" + src, done = false;
+    try { done = sessionStorage.getItem(key) === "1"; } catch (e) {}
+    if (platform === "web" || q.get("auto") === "0" || done) return;
+    var timer = null;
+    function cancel() { if (timer) { clearTimeout(timer); timer = null; } }
+    ["touchstart", "wheel", "keydown"].forEach(function (t) { window.addEventListener(t, cancel, { once: true, passive: true }); });
+    function schedule() {
+      timer = setTimeout(function () {
+        timer = null;
+        try { sessionStorage.setItem(key, "1"); } catch (e) {}
+        count("/auto/" + src + "/" + platform, "Otomatik mağaza · " + src);
+        location.href = platform === "ios" ? ios : android;
+      }, 1200);
+    }
+    if (document.readyState === "complete") schedule(); else window.addEventListener("load", schedule, { once: true });
   })();
 </script>
 </body>
