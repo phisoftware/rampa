@@ -109,6 +109,8 @@
     var lang = q.get("lang") === "en" || q.get("lang") === "tr" ? q.get("lang") :
       ((navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
     document.documentElement.lang = lang;
+    // /get bu sayfaya ?via=get ile aktarır: sayım eski /get/<kaynak>/<platform> satırında, Play'de utm_medium=social.
+    var via = q.get("via") === "get";
     var src = (q.get("src") || "ig_reklam").replace(/[^a-z0-9_-]/gi, "").slice(0, 40) || "ig_reklam";
     var ua = navigator.userAgent || "";
     var isIOS = /iPhone|iPad|iPod/.test(ua) || (ua.indexOf("Macintosh") > -1 && navigator.maxTouchPoints > 1);
@@ -117,7 +119,7 @@
     // iPhone → App Store Instagram özel ürün sayfası + kampanya kodu; Android → Play, kaynak utm ile.
     var ios = "https://apps.apple.com/app/id6819189459?ppid=c1b99690-1d07-4501-80bf-0a4e09aee9b0&pt=119007264&ct=" + src + "&mt=8";
     var android = "https://play.google.com/store/apps/details?id=com.phisoftware.rampa.app&referrer=" +
-      encodeURIComponent("utm_source=" + src + "&utm_medium=paid_social");
+      encodeURIComponent("utm_source=" + src + "&utm_medium=" + (via ? "social" : "paid_social"));
     function count(path, title) {
       var url = "https://rampaoffroad.goatcounter.com/count?p=" + encodeURIComponent(path) + "&t=" + encodeURIComponent(title) +
         "&r=" + encodeURIComponent(document.referrer) + "&s=" + encodeURIComponent(screen.width + "," + screen.height + "," + (window.devicePixelRatio || 1)) +
@@ -133,20 +135,17 @@
     });
     document.getElementById("more").href = "../?src=" + encodeURIComponent(src);
     document.title = lang === "en" ? "Rampa · Hills shouldn't look flat on video" : document.title;
-    count("/ad/" + src + "/" + platform, "Reklam sayfası · " + src);
+    if (via) count("/get/" + src + "/" + platform, "Rampa indir · " + src);
+    else count("/ad/" + src + "/" + platform, "Reklam sayfası · " + src);
 
     // Telefonda sayfa yüklenince bir kez kendiliğinden mağazaya (Meta ziyareti saymış olur); mağazadan dönen sayfayı
-    // görür, yeniden yönlendirilmez. Kullanıcı o arada kaydırır / dokunursa okuyordur, yönlendirme yok. ?auto=0 kapatır.
+    // görür, yeniden yönlendirilmez. Kaydırsa da yönlendirilir (kullanıcı kararı 23.10.2026). ?auto=0 kapatır.
     // Uygulama içi tarayıcı dokunuşsuz mağaza açmayı engellerse sayfa ve düğme olduğu gibi kalır.
     var key = "rampa-auto-" + src, done = false;
     try { done = sessionStorage.getItem(key) === "1"; } catch (e) {}
     if (platform === "web" || q.get("auto") === "0" || done) return;
-    var timer = null;
-    function cancel() { if (timer) { clearTimeout(timer); timer = null; } }
-    ["touchstart", "wheel", "keydown"].forEach(function (t) { window.addEventListener(t, cancel, { once: true, passive: true }); });
     function schedule() {
-      timer = setTimeout(function () {
-        timer = null;
+      setTimeout(function () {
         try { sessionStorage.setItem(key, "1"); } catch (e) {}
         count("/auto/" + src + "/" + platform, "Otomatik mağaza · " + src);
         location.href = platform === "ios" ? ios : android;
