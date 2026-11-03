@@ -57,6 +57,9 @@
 <h2>Apple Watch</h2>
 <p>The watch app shows the slope measured by your iPhone and controls recording. If you turn on the camera preview, small camera frames are sent directly from your iPhone to your paired watch over Apple's watch connection; they are not stored and never leave your devices.</p>
 
+<h2>Club radio, transcripts and notifications</h2>
+<p>The club radio sends your voice to the members of your club through our relay server (Cloudflare). Audio is encrypted end to end with a key that exists only in the club's invitation link; the server cannot listen and does not store voice, except for a short in-memory buffer of the current talk so that a member who joins late hears it. Talk transcripts are produced on your own phone (on-device speech recognition; the audio is not sent to Apple, Google or us) and shared with your club as encrypted text, which the server keeps for 24 hours so that members who were offline can read it. To wake a locked phone and to notify you about talks in your other clubs, the server stores your push notification token for up to 30 days; it never learns club names or who is speaking. You can turn transcripts and alerts off in Settings.</p>
+
 <h2>Sharing</h2>
 <p>When you share a video or photo, it goes through the iOS share sheet to the app or person you choose; their own privacy policies apply. Rampa does not upload anything itself.</p>
 
@@ -97,6 +100,9 @@
 
 <h2>Apple Watch</h2>
 <p>Saat uygulaması iPhone'unun ölçtüğü eğimi gösterir ve kaydı yönetir. Kamera önizlemesini açarsan küçük kamera kareleri iPhone'undan eşli saatine doğrudan Apple'ın saat bağlantısıyla gönderilir; saklanmaz ve cihazlarından çıkmaz.</p>
+
+<h2>Kulüp telsizi, dökümler ve bildirimler</h2>
+<p>Kulüp telsizi sesinizi aktarıcı sunucumuz (Cloudflare) üzerinden kulübünüzün üyelerine iletir. Ses, yalnız kulübün davet bağlantısında bulunan bir anahtarla uçtan uca şifrelenir; sunucu dinleyemez ve sesi saklamaz; yalnızca geç katılan üyenin süren konuşmayı duyabilmesi için kısa bir bellek tamponu tutar. Konuşma dökümleri kendi telefonunuzda üretilir (cihaz içi konuşma tanıma; ses Apple'a, Google'a ya da bize gönderilmez) ve kulübünüzle şifreli metin olarak paylaşılır; sunucu bu metni çevrimdışı üyeler okuyabilsin diye 24 saat tutar. Kilitli telefonu uyandırmak ve diğer kulüplerinizdeki konuşmaları haber vermek için sunucu bildirim belirtecinizi en çok 30 gün saklar; kulüp adlarını ve kimin konuştuğunu bilmez. Dökümleri ve bildirimleri Ayarlar'dan kapatabilirsiniz.</p>
 
 <h2>Paylaşım</h2>
 <p>Bir videoyu ya da fotoğrafı paylaştığında iOS paylaşım sayfası üzerinden senin seçtiğin uygulamaya veya kişiye gider; onların gizlilik politikaları geçerlidir. Rampa kendisi hiçbir şey yüklemez.</p>
